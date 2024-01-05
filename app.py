@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D
-from keras.optimizers import adam_v2
+from keras.optimizers import Adam
 from tensorflow.keras.preprocessing import image
 from keras.preprocessing.image import ImageDataGenerator
 
@@ -65,7 +65,7 @@ model.add(Dense(1024, activation='relu'))
 model.add(Dropout(0.3))
 model.add(Dense(1, activation='sigmoid'))
 
-model.compile(loss='binary_crossentropy', optimizer=adam_v2.Adam(learning_rate=0.0001),metrics=['accuracy'])
+model.compile(loss='binary_crossentropy', optimizer=Adam(learning_rate=0.0001),metrics=['accuracy'])
 model_info = model.fit(
         train_generator,
         steps_per_epoch=12045// 64,
